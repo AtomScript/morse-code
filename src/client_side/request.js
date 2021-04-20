@@ -1,198 +1,83 @@
-
-function encode() {
-  try{
-    let encodeText = document.getElementById("texter");
-let decodeText = document.getElementById("resultText");
-
-     $.ajax({
-  url: '/encode',
-  method: 'POST',
-  data: {text: encodeText.value},
-   success: function(data){
-     decodeText.innerHTML = data.text;
-     const table = document.getElementById("tableText");
-       
-       table.innerHTML = `<tr>
+<html>
+  <head>
+    <title>Morse Code</title>
+        <meta name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, 
+     user-scalable=0' >
+		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<link rel="stylesheet" href="./index.css" type="text/css">
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+  <script type="text/javascript" src="./request.js"></script>
+  </head>
+  <body>
+    <div id="bar">
+       <ul>
+    <li>
+        <input type='radio' name="bar" id='textRa' checked/>
+        <label onclick="changeToText()" for='textRa' id="labText">Text</label>
+    </li>
+    <li>
+        <input type='radio' name="bar" id='morseRa'/>
+        <label onclick="changeToMorse()" for='morseRa' id="labMorse">Morse Code</label>
+    </li>
+</ul>
+    </div>
+    
+    <div class="container" id="textDiv">
+      <br><br>
+    <textarea id="texter"></textarea>
+    <button onclick="encode()">Lets encode</button>
+    <br><br>
+   <button class="resultButtons" onclick="showModalText()">view full graph</button>
+    <button class="resultButtons" onclick="textCopy()">copy</button>
+    
+    <p id="resultText"></p>
+    </div>
+    
+    <div class="container" id="morseDiv">
+      <br><br>
+    <textarea id="morseText"></textarea>
+    <button onclick="decode()">Lets decode</button>
+    <br><br>
+   <button class="resultButtons" onclick="showModalMorse()">view full graph</button>
+    <button class="resultButtons" onclick="morseCopy()">copy</button>
+    
+    <p id="resultMorse"></p>
+    </div>
+    
+    <div class="grafico" id="gt">
+      <div class="bodyM">
+        <span onclick="hidegt()" class="close">&times;</span>
+        <div class="buttonBar">
+        <button class="rainbow" onclick="colorText()"></button>
+        <button class="btn_black" onclick="returnColorText()"></button>
+        </div>
+        
+      <table id="tableText" style="width:100%">
+        <tr>
           <th>Character</th>
           <th>Code</th>
-        </tr>`;
-       
-     for(let res of data.arr){
-       table.innerHTML += "<tr class='linesTable'><td class='colum'>"+res.letter+"</td><td class='colum'>"+res.code+"</td></tr>"
-     }
-}
-});
-}catch(err){console.log(err)};
-}
-
-
-function decode() {
-  try{
-    let encodeText = document.getElementById("resultMorse");
-let decodeText = document.getElementById("morseText");
-
-     $.ajax({
-  url: '/decode',
-  method: 'POST',
-  data: {text: decodeText.value},
-   success: function(data){
-     encodeText.innerHTML = data.text;
-     const table = document.getElementById("tableMorse");
-       
-       table.innerHTML = `<tr>
+        </tr>
+      </table>
+      </div>
+    </div>
+    
+     <div class="grafico" id="gm">
+       <div class="bodyM">
+         <span onclick="hidegm()" class="close">&times;</span>
+         <div class="buttonBar">
+         <button class="rainbow" onclick="colorMorse()"></button>
+        <button class="btn_black" onclick="returnColorMorse()"></button>
+        </div>
+         
+      <table id="tableMorse" style="width:100%">
+        <tr>
           <th>Code</th>
           <th>Character</th>
-        </tr>`;
-       
-     for(let res of data.arr){
-       table.innerHTML += "<tr class='linesTable'><td class='colum'>"+res.letter+"</td><td class='colum'>"+res.code+"</td></tr>"
-     }
-}
-});
-}catch(err){console.log(err)};
-}
-
-function changeToMorse() {
-  document.getElementById("morseDiv").style.display = "block";
-  document.getElementById("textDiv").style.display = "none";
-}
-
-function changeToText() {
-  document.getElementById("textDiv").style.display = "block";
-  document.getElementById("morseDiv").style.display = "none";
-}
-
-function showModalText() {
-  document.getElementById("gt").style.display = "block";
-  document.getElementById("gm").style.display = "none";
-}
-
-function showModalMorse() {
-  document.getElementById("gt").style.display = "none";
-  document.getElementById("gm").style.display = "block";
-}
-
-function hidegt() {
-  document.getElementById("gt").style.display = "none";
-}
-
-function hidegm() {
-  document.getElementById("gm").style.display = "none";
-}
-
-function colorText() {
-  try{
-  const table = document.getElementById("tableText");
-  let lines = table.getElementsByClassName("linesTable");
-  
-  for(let line of lines){
-    line.style.color = "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
-  }
-  
-  }catch{}
-}
-
-function colorMorse() {
-  try{
-  const table = document.getElementById("tableMorse");
-  let lines = table.getElementsByClassName("linesTable");
-  
-  for(let line of lines){
-    line.style.color = "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
-  }
-  
-  }catch{}
-}
-
-function returnColorText() {
-  try{
-  const table = document.getElementById("tableText");
-  let lines = table.getElementsByClassName("linesTable");
-  
-  for(let line of lines){
-    line.style.color = "#000000";
-  }
-  
-  }catch{}
-}
-
-function returnColorMorse() {
-  try{
-  const table = document.getElementById("tableText");
-  let lines = table.getElementsByClassName("linesTable");
-  
-  for(let line of lines){
-    line.style.color = "#000000";
-  }
-  
-  }catch{}
-}
-
-function newAlert(text, isError){
-  try{
-  var element = document.createElement("div");
-  
-  element.classList.add(isError ? "alertError" : "alertSuccess");
-  
-  element.innerHTML = text;
-  
-  document.body.appendChild(element);
-  }catch{};
-}
-
-function textCopy() {
-  try{
-  var copyTextarea = document.createElement("textarea");
-  copyTextarea.value = document.getElementById("resultText").innerHTML;
- 
-  copyTextarea.style.position = "fixed";
-
-  document.body.appendChild(copyTextarea);
-  copyTextarea.focus();
-  copyTextarea.select();
-  
-  
-  try {
-    var successful = document.execCommand('copy');
-    var status = successful ? true : false;
+        </tr>
+      </table>
+      </div>
+    </div>
     
-    if(status)
-      newAlert("Morse code copied", false);
-     else
-      newAlert("Unable to copy", true);
-      
-    
-  }catch(err){alert(err)}
-  
-  document.body.removeChild(copyTextarea)
-  }catch(err){alert(err)}
-  
-}
-
-function morseCopy() {
-  try{
-  var copyTextarea = document.createElement("textarea");
-  copyTextarea.value = document.getElementById("resultMorse").innerHTML;
-  
-  copyTextarea.style.position = "fixed";
-
-  document.body.appendChild(copyTextarea);
-  copyTextarea.focus();
-  copyTextarea.select();
-  
-  
-  try {
-    var successful = document.execCommand('copy');
-    var status = successful ? true : false;
-    
-    if(status)
-      newAlert("Text copied", false);
-    else
-      newAlert("Unable to copy", true);
-    
-  }catch(err){alert(err)}
-  
-  document.body.removeChild(copyTextarea)
-  }catch(err){alert(err)}
-  
-}
+  </body>
+</html>
