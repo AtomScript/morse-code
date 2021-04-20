@@ -19,7 +19,7 @@ app.get("/", (req, res) =>{
 app.post("/decode", (req, res) =>{
   if(req.body["text"]){
     if(/[a-zA-Z0-9]/g.test(req.body["text"])){
-      res.send("Please type a valid morse code.")
+      res.send({text:"Please type a valid morse code."})
       return;
     }
     
@@ -34,7 +34,7 @@ app.post("/decode", (req, res) =>{
   
   res.send({arr, text: text});
   }else{
-    res.send("Failed request. Missing text")
+    res.send({text:"Failed request. Missing text"})
   }
 });
 
@@ -42,7 +42,7 @@ app.post("/encode", (req, res) =>{
   
   if(req.body["text"]){
     if(!/[a-zA-Z0-9]/g.test(req.body["text"])){
-      res.send("Please type a valid text.")
+      res.send({text:"Please type a valid text."})
       return;
     }
     
@@ -56,7 +56,7 @@ app.post("/encode", (req, res) =>{
   
   res.send({arr, text: text});
   }else{
-    res.send("Failed request. Missing text")
+    res.send({text:"Failed request. Missing text"});
   }
 });
 
