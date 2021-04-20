@@ -127,3 +127,72 @@ function returnColorMorse() {
   
   }catch{}
 }
+
+function newAlert(text, isError){
+  try{
+  var element = document.createElement("div");
+  
+  element.classList.add(isError ? "alertError" : "alertSuccess");
+  
+  element.innerHTML = text;
+  
+  document.body.appendChild(element);
+  }catch{};
+}
+
+function textCopy() {
+  try{
+  var copyTextarea = document.createElement("textarea");
+  copyTextarea.value = document.getElementById("resultText").innerHTML;
+ 
+  copyTextarea.style.position = "fixed";
+
+  document.body.appendChild(copyTextarea);
+  copyTextarea.focus();
+  copyTextarea.select();
+  
+  
+  try {
+    var successful = document.execCommand('copy');
+    var status = successful ? true : false;
+    
+    if(status)
+      newAlert("Morse code copied", false);
+     else
+      newAlert("Unable to copy", true);
+      
+    
+  }catch(err){alert(err)}
+  
+  document.body.removeChild(copyTextarea)
+  }catch(err){alert(err)}
+  
+}
+
+function morseCopy() {
+  try{
+  var copyTextarea = document.createElement("textarea");
+  copyTextarea.value = document.getElementById("resultMorse").innerHTML;
+  
+  copyTextarea.style.position = "fixed";
+
+  document.body.appendChild(copyTextarea);
+  copyTextarea.focus();
+  copyTextarea.select();
+  
+  
+  try {
+    var successful = document.execCommand('copy');
+    var status = successful ? true : false;
+    
+    if(status)
+      newAlert("Text copied", false);
+    else
+      newAlert("Unable to copy", true);
+    
+  }catch(err){alert(err)}
+  
+  document.body.removeChild(copyTextarea)
+  }catch(err){alert(err)}
+  
+}
