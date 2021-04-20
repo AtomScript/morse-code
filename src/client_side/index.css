@@ -120,6 +120,7 @@ td {
         padding: 5px;
         border: none;
         color: black;
+        display: inline-block;
         background: #836FFF;
         border-radius: 15px;
         font-size: 15px;
@@ -140,4 +141,40 @@ td {
       }
       .buttonBar > button {
         display: inline-block;
+      }
+      @keyframes hide {
+        from{
+          transform: translateX(0);
+        }
+        to{
+          transform: translateX(200%);
+        }
+      }
+      .alertError {
+        background: red;
+        top: 5;
+        right: 0;
+        color: white;
+        position: fixed;
+        padding: 15px;
+        border-radius: 20px;
+        animation-delay: 1s;
+        animation-name: hide;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-in;
+        animation-fill-mode: forwards;
+      }
+      .alertSuccess {
+        background: green;
+        top: 5;
+        right: 0;
+        color: white;
+        position: fixed;
+        padding: 15px;
+        border-radius: 20px;
+        animation-delay: 1s;
+        animation-name: hide;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-in;
+        animation-fill-mode: forwards;
       }
