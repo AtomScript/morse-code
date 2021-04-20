@@ -1,0 +1,117 @@
+      .container > h1 {
+        text-align: center;
+      }
+      textarea {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        height: 30%;
+        border-radius: 15px;
+        padding: 5px;
+      }
+      button {
+        margin: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10px;
+        border: none;
+        color: black;
+        background: #836FFF;
+        border-radius: 15px;
+        font-size: 20px;
+      }
+      button:hover {
+        background: SlateBlue;
+        border-style: SlateBlue;
+      }
+      #bar {
+        width: 100%;
+        height: 27px;
+        background: gray;
+      }
+      ul {
+    list-style: none;
+}
+li {
+    color: white;
+    display: inline-block;
+    margin-right: 5px;
+}
+input {
+    visibility:hidden;
+}
+label {
+    cursor: pointer;
+}
+input:checked + label {
+    background: SlateBlue;
+    border-style: SlateBlue;
+    border-radius: 10px;
+    padding: 3px;
+}
+#morseDiv {
+  display: none;
+}
+p {
+  margin: 2px;
+  color: white;
+  padding: 5px;
+  padding-left: 20px;
+  background: gray;
+  border-radius: 10px;
+}
+.grafico {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); 
+}
+.grafico > .bodyM {
+  padding: 20px;
+  margin: 10% auto;
+  border: 1px solid #888;
+  width: 80%;
+  background: white;
+  border-radius: 10px;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 50px 0;
+}
+
+#gt, #gm {
+  display: none;
+}
+.resultButtons {
+        margin: 0;
+        padding: 5px;
+        border: none;
+        color: black;
+        background: #836FFF;
+        border-radius: 15px;
+        font-size: 15px;
+      }
+      .resultButtons:hover {
+        background: SlateBlue;
+        border-style: SlateBlue;
+      }
