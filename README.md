@@ -1,5 +1,4 @@
 # Morse Code
-
 Encode and decode a morse code
 
 <h1 align="center"> Guide </h1>
