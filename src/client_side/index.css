@@ -8,6 +8,9 @@
         outline: none !important;
       }
       textarea {
+        background: #2C2F33;
+        border: 1px solid #836FFF;
+        color: white;
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -36,7 +39,8 @@
       #bar {
         width: 100%;
         height: 27px;
-        background: gray;
+        background: #2C2F33;
+        border-bottom: 1px solid #836FFF;
       }
       ul {
     list-style: none;
@@ -67,7 +71,7 @@ p {
   color: white;
   padding: 5px;
   padding-left: 20px;
-  background: gray;
+  background: #2C2F33;
   border-radius: 10px;
 }
 .grafico {
@@ -83,9 +87,10 @@ p {
 .grafico > .bodyM {
   padding: 20px;
   margin: 10% auto;
-  border: 1px solid #888;
+  border: 1px solid #836FFF;
   width: 80%;
-  background: white;
+  background: #2C2F33;
+  color: white;
   border-radius: 10px;
 }
 .close {
@@ -105,6 +110,7 @@ p {
 table {
   border-collapse: separate;
   border-spacing: 50px 0;
+  color: white;
 }
 td {
   border-bottom: 1px solid black;
@@ -112,6 +118,7 @@ td {
 
 .rainbow {
   background: linear-gradient(to left, cyan, DarkTurquoise, Turquoise, mediumTurquoise, LightSeaGreen, darkCyan, teal);
+  border: 1px solid #836FFF;
   margin: 0;
 }
 
@@ -141,7 +148,8 @@ td {
         margin: 0 auto;
       }
       .btn_black {
-        background: black;
+        background: white;
+        border: 1px solid #836FFF;
         margin: 0;
       }
       .btn_black:hover {
