@@ -1,6 +1,12 @@
       .container > h1 {
         text-align: center;
       }
+      body {
+        background-color: #23272a;
+      }
+      textarea:focus {
+        outline: none !important;
+      }
       textarea {
         display: block;
         margin-left: auto;
@@ -17,12 +23,13 @@
         margin-right: auto;
         padding: 10px;
         border: none;
-        color: black;
+        color: white;
         background: #836FFF;
         border-radius: 15px;
         font-size: 20px;
       }
       button:hover {
+        outline: none !important;
         background: SlateBlue;
         border-style: SlateBlue;
       }
@@ -119,13 +126,14 @@ td {
         margin: 0;
         padding: 5px;
         border: none;
-        color: black;
+        color: white;
         display: inline-block;
         background: #836FFF;
         border-radius: 15px;
         font-size: 15px;
       }
       .resultButtons:hover {
+        outline: none !important;
         background: SlateBlue;
         border-style: SlateBlue;
       }
@@ -137,9 +145,11 @@ td {
         margin: 0;
       }
       .btn_black:hover {
+        outline: none !important;
         background: gray;
       }
       .buttonBar > button {
+        outline: none !important;
         display: inline-block;
       }
       @keyframes hide {
@@ -178,3 +188,4 @@ td {
         animation-timing-function: ease-in;
         animation-fill-mode: forwards;
       }
+      
