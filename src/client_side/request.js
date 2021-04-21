@@ -110,7 +110,7 @@ function returnColorText() {
   let lines = table.getElementsByClassName("linesTable");
   
   for(let line of lines){
-    line.style.color = "#000000";
+    line.style.color = "white";
   }
   
   }catch{}
@@ -122,7 +122,7 @@ function returnColorMorse() {
   let lines = table.getElementsByClassName("linesTable");
   
   for(let line of lines){
-    line.style.color = "#000000";
+    line.style.color = "white";
   }
   
   }catch{}
