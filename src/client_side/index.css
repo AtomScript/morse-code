@@ -55,13 +55,13 @@ input {
 }
 label {
     cursor: pointer;
+    padding: 7px;
 }
+
 input:checked + label {
     background: SlateBlue;
     border-style: SlateBlue;
-    border-radius: 10px;
     margin: 0 auto;
-    padding: 7px;
 }
 #morseDiv {
   display: none;
