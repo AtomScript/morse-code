@@ -12,5 +12,5 @@ Encode and decode a morse code
 ## viewing graphics
 <img src="https://s3.gifyu.com/images/20210421_120134.png" alt="20210421 120134" border="0">
 
-## viewing graphics with rainbow
+## viewing graphics with rainbow color
 <img src="https://s3.gifyu.com/images/20210421_120051.png" alt="20210421 120051" border="0">
